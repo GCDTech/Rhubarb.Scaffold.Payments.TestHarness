@@ -58,9 +58,10 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/gcdtech/rhubarb.scaffold.payments",
-                "reference": "cd27952dd7c8cd5eb34f21a1fa40c613faa0c854"
+                "reference": "e82816e2c859e5e3ee5adf89ec8db56ba31be6ee"
             },
             "require": {
+                "gcdtech/usecases": "^1.0.0",
                 "rhubarbphp/module-leaf": "^1.0.0",
                 "rhubarbphp/module-leaf-common-controls": "^1.0.0",
                 "rhubarbphp/module-stem": "^1.5.6",
@@ -70,15 +71,15 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Gcd\\Payments\\": "src/",
-                    "Gcd\\Payments\\Tests\\": "tests/"
+                    "Gcd\\Scaffold\\Payments\\": "src/",
+                    "Gcd\\Scaffold\\Payments\\Tests\\": "tests/"
                 }
             },
             "license": [
                 "proprietary"
             ],
             "description": "A pattern for SCA friendly payments",
-            "time": "2019-08-01T09:10:46+00:00"
+            "time": "2019-08-01T11:01:21+00:00"
         },
         {
             "name": "gcdtech/rhubarb-scaffold-payments-stripe",
@@ -104,6 +105,43 @@
             ],
             "description": "A pattern for SCA friendly payments",
             "time": "2019-08-01T09:10:32+00:00"
+        },
+        {
+            "name": "gcdtech/usecases",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/GCDTech/php-usecase-pattern.git",
+                "reference": "d03c669f3cd33e2f67f8f75f88eba885143e6133"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/GCDTech/php-usecase-pattern/zipball/d03c669f3cd33e2f67f8f75f88eba885143e6133",
+                "reference": "d03c669f3cd33e2f67f8f75f88eba885143e6133",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0.0",
+                "psr/container": "^1.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Gcd\\UseCases\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Andrew Cuthbert",
+                    "email": "acuthbert@gcdtech.com"
+                }
+            ],
+            "description": "Base classes and interfaces for implementing the Use Case pattern along with entities and entity emitting iterators.",
+            "time": "2019-08-01T10:59:00+00:00"
         },
         {
             "name": "psr/container",
