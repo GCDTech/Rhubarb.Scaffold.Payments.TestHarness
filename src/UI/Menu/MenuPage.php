@@ -13,7 +13,7 @@ class MenuPage implements GeneratesResponseInterface
 
         ?>
         <ul>
-            <li>Simple on-session payment capture</li>
+            <li><a href="/customer-initiated/">Simple on-session payment capture</a></li>
             <li>Merchant initiated on-session payment capture</li>
             <li>Merchant initiated off-session payment from stored card</li>
         </ul>

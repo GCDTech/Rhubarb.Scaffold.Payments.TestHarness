@@ -2,6 +2,7 @@
 
 namespace Gcd\Payments\TestHarness\UI\CustomerInitiated;
 
+use Gcd\Scaffold\Payments\UI\StripePaymentCaptureControl\StripePaymentCaptureControl;
 use Rhubarb\Leaf\Views\View;
 use Rhubarb\Leaf\Leaves\LeafDeploymentPackage;
 
@@ -13,10 +14,15 @@ class CustomerInitiatedView extends View
     protected function createSubLeaves()
     {
         parent::createSubLeaves();
+
+        $this->registerSubLeaf(
+            new StripePaymentCaptureControl("Payment")
+        );
     }
 
     protected function printViewContent()
     {
+        print $this->leaves["Payment"];
     }
 
     public function getDeploymentPackage()
