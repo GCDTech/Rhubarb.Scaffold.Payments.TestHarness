@@ -6,6 +6,8 @@ use Rhubarb\Leaf\Leaves\Leaf;
 
 class CustomerInitiated extends Leaf
 {
+    const BASKET_PRICE = 12.22;
+
     /** @var CustomerInitiatedModel $model **/
     protected $model;
 

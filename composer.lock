@@ -87,7 +87,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/gcdtech/rhubarb.scaffold.payments.stripe",
-                "reference": "d87c694d0eda044fe1c3386e440a29005a262bc8"
+                "reference": "8a85ccecd188385ffdd8f1ea12204afe5d2d20e7"
             },
             "require": {
                 "gcdtech/rhubarb-scaffold-payments": "dev-master",
@@ -96,15 +96,15 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Gcd\\Payments\\Stripe\\": "src/",
-                    "Gcd\\Payments\\Stripe\\Tests\\": "tests/"
+                    "Gcd\\Scaffold\\Payments\\Stripe\\": "src/",
+                    "Gcd\\Scaffold\\Payments\\Stripe\\Tests\\": "tests/"
                 }
             },
             "license": [
                 "proprietary"
             ],
             "description": "A pattern for SCA friendly payments",
-            "time": "2019-08-01T09:10:32+00:00"
+            "time": "2019-08-01T11:39:24+00:00"
         },
         {
             "name": "gcdtech/usecases",
