@@ -4,7 +4,13 @@ rhubarb.vb.create('CustomerInitiatedViewBridge', function() {
             this.paymentControl = this.findChildViewBridge('Payment');
 
             this.viewNode.querySelector('.js-paynow').addEventListener('click', (event) => {
-                this.paymentControl.confirmPayment();
+                this.paymentControl
+                    .confirmPayment()
+                    .then(function(){
+                        alert('Success!');
+                    });
+
+                event.preventDefault();
             });
         }
     };
