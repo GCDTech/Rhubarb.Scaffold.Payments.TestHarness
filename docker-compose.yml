@@ -1,0 +1,64 @@
+version: "3.6"
+
+volumes:
+  deployed:
+  db-data:
+
+networks:
+  database:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.255.12.0/24
+  data:
+  grid:
+
+services:
+
+  app:
+    container_name: ph_app
+    build: ./configurations/dev/apache
+    ports:
+      - "8022:80"
+    volumes:
+      - type: volume
+        source: deployed
+        target: /var/www/html/deployed
+      - type: bind
+        source: ./
+        target: /var/www/html
+        volume:
+          nocopy: true
+    depends_on:
+      - db
+    networks:
+      data:
+        aliases:
+          - app
+      database:
+        aliases:
+          - app
+        ipv4_address: 172.255.12.10
+
+  db:
+    container_name: ph_db
+    image: mysql:5.7
+    command: --sql_mode=""
+    ports:
+      - "5821:3306"
+    restart: always
+    environment:
+      MYSQL_USER: payments
+      MYSQL_PASSWORD: payments
+      MYSQL_ROOT_PASSWORD: payments
+      MYSQL_DATABASE: payments
+    volumes:
+      - type: volume
+        source: db-data
+        target: /var/lib/mysql
+    networks:
+      data:
+      database:
+        aliases:
+          - database
