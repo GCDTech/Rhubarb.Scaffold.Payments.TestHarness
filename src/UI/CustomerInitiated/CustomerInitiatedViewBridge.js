@@ -5,7 +5,7 @@ rhubarb.vb.create('CustomerInitiatedViewBridge', function() {
 
             this.viewNode.querySelector('.js-paynow').addEventListener('click', (event) => {
                 this.paymentControl
-                    .confirmPayment()
+                    .confirmPayment(this.model.paymentEntity)
                     .then(function(){
                         alert('Success!');
                     });
