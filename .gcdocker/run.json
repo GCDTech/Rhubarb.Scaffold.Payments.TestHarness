@@ -1,0 +1,42 @@
+{
+  "initial_setup": {
+    "val": 1,
+    "date": "2019-08-02 09:08:12"
+  },
+  "codeception_path": {
+    "val": "vendor/codeception/codeception"
+  },
+  "codeception_container_path": {
+    "val": "bin/codecept"
+  },
+  "container_custard_path": {
+    "val": "bin/custard"
+  },
+  "required_deps": {
+    "val": "",
+    "date": "2019-08-02 09:07:06"
+  },
+  "root_rhubarb_namespace": {
+    "val": "Gcd\\Payments\\TestHarness\\TestHarnessApplication"
+  },
+  "root_rhubarb_container": {
+    "val": "ph_app"
+  },
+  "server_db": {
+    "val": 0
+  },
+  "custom_commands": {
+    "val": ""
+  },
+  "custard_commands": {
+    "val": ""
+  },
+  "provision_complete": {
+    "val": 0,
+    "date": "1970-01-01 00:00:00"
+  },
+  "dep_checking": {
+    "val": 0,
+    "date": "1970-01-01 00:00:00"
+  }
+}

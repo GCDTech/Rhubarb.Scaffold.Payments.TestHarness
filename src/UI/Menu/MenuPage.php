@@ -14,7 +14,7 @@ class MenuPage implements GeneratesResponseInterface
         ?>
         <ul>
             <li><a href="/customer-initiated/">Simple on-session payment capture</a></li>
-            <li>Merchant initiated on-session payment capture</li>
+            <li><a href="/moto/">Merchant initiated MOTO payment capture</a></li>
             <li>Merchant initiated off-session payment from stored card</li>
         </ul>
         <?php
