@@ -3,6 +3,7 @@
 namespace Gcd\Payments\TestHarness;
 
 use Gcd\Payments\TestHarness\UI\CustomerInitiated\CustomerInitiated;
+use Gcd\Payments\TestHarness\UI\MOTO\MOTO;
 use Gcd\Payments\TestHarness\UI\Shared\SimpleLayout;
 use Gcd\Scaffold\Payments\Stripe\Settings\StripeSettings;
 use Rhubarb\Crown\Application;
@@ -38,7 +39,8 @@ class TestHarnessApplication extends Application
         $this->addUrlHandlers(
           [
               "/" => new ClassMappedUrlHandler(UI\Menu\MenuPage::class, [
-                  "customer-initiated/" => new ClassMappedUrlHandler(CustomerInitiated::class)
+                  "customer-initiated/" => new ClassMappedUrlHandler(CustomerInitiated::class),
+                  "moto/" => new ClassMappedUrlHandler(Moto::class)
               ])
           ]
         );
