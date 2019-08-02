@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
     "content-hash": "eb803f53802d4108df5cf8a872da45ce",
@@ -87,7 +87,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/gcdtech/rhubarb.scaffold.payments.stripe",
-                "reference": "8a85ccecd188385ffdd8f1ea12204afe5d2d20e7"
+                "reference": "12108d832d3ee2a9d583e1deaf766227402a3d35"
             },
             "require": {
                 "gcdtech/rhubarb-scaffold-payments": "dev-master",
@@ -104,7 +104,7 @@
                 "proprietary"
             ],
             "description": "A pattern for SCA friendly payments",
-            "time": "2019-08-01T11:39:24+00:00"
+            "time": "2019-08-01T11:55:38+00:00"
         },
         {
             "name": "gcdtech/usecases",
@@ -1517,6 +1517,7 @@
             "dist": {
                 "type": "tar",
                 "url": "https://packages.gcdtech.com/dist/gcdtech/gcdocker/gcdtech-gcdocker-0.24.0.tar",
+                "reference": null,
                 "shasum": "7ac31d99cb9b058ae0a1eb818801106093079184"
             },
             "bin": [
