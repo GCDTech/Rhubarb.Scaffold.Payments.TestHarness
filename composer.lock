@@ -58,7 +58,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/gcdtech/rhubarb.scaffold.payments",
-                "reference": "e82816e2c859e5e3ee5adf89ec8db56ba31be6ee"
+                "reference": "667e3973ed2657d06eb3579229fe71bf59345cd2"
             },
             "require": {
                 "gcdtech/usecases": "^1.0.0",
@@ -79,7 +79,7 @@
                 "proprietary"
             ],
             "description": "A pattern for SCA friendly payments",
-            "time": "2019-08-01T11:01:21+00:00"
+            "time": "2019-08-02T10:46:39+00:00"
         },
         {
             "name": "gcdtech/rhubarb-scaffold-payments-stripe",
@@ -87,11 +87,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/gcdtech/rhubarb.scaffold.payments.stripe",
-                "reference": "12108d832d3ee2a9d583e1deaf766227402a3d35"
+                "reference": "6540d1e02f5dc04bedbb6616005d6a35badefbcd"
             },
             "require": {
                 "gcdtech/rhubarb-scaffold-payments": "dev-master",
-                "rhubarbphp/rhubarb": "^1.3.21"
+                "rhubarbphp/rhubarb": "^1.3.21",
+                "stripe/stripe-php": "^6.40.0"
             },
             "type": "library",
             "autoload": {
@@ -104,7 +105,7 @@
                 "proprietary"
             ],
             "description": "A pattern for SCA friendly payments",
-            "time": "2019-08-01T11:55:38+00:00"
+            "time": "2019-08-02T13:29:46+00:00"
         },
         {
             "name": "gcdtech/usecases",
@@ -752,6 +753,62 @@
                 "rhubarb"
             ],
             "time": "2019-05-15T09:57:51+00:00"
+        },
+        {
+            "name": "stripe/stripe-php",
+            "version": "v6.41.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stripe/stripe-php.git",
+                "reference": "abd52aed846b52db9365b470be696d0905c08b01"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/abd52aed846b52db9365b470be696d0905c08b01",
+                "reference": "abd52aed846b52db9365b470be696d0905c08b01",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "php-coveralls/php-coveralls": "1.*",
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "~2.0",
+                "symfony/process": "~2.8"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Stripe\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Stripe and contributors",
+                    "homepage": "https://github.com/stripe/stripe-php/contributors"
+                }
+            ],
+            "description": "Stripe PHP Library",
+            "homepage": "https://stripe.com/",
+            "keywords": [
+                "api",
+                "payment processing",
+                "stripe"
+            ],
+            "time": "2019-08-01T01:41:19+00:00"
         },
         {
             "name": "symfony/console",

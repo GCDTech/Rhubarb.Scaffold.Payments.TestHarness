@@ -6,8 +6,10 @@ rhubarb.vb.create('CustomerInitiatedViewBridge', function() {
             this.viewNode.querySelector('.js-paynow').addEventListener('click', (event) => {
                 this.paymentControl
                     .attemptPayment(this.model.paymentEntity)
-                    .then(function(){
+                    .then(function(paymentEntity){
                         alert('Success!');
+                    },function(paymentEntity){
+                        alert('Failed: ' + paymentEntity.error);
                     });
 
                 event.preventDefault();
