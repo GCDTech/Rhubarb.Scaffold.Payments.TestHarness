@@ -40,6 +40,8 @@ services:
         aliases:
           - app
         ipv4_address: 172.255.12.10
+    environment:
+      rhubarb_app: \Gcd\Payments\TestHarness\TestHarnessApplication
 
   db:
     container_name: ph_db

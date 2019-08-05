@@ -10,7 +10,11 @@ use Rhubarb\Crown\Application;
 use Rhubarb\Crown\Exceptions\Handlers\ExceptionHandler;
 use Rhubarb\Crown\Layout\LayoutModule;
 use Rhubarb\Crown\UrlHandlers\ClassMappedUrlHandler;
+use Rhubarb\Stem\Repositories\MySql\MySql;
+use Rhubarb\Stem\Repositories\Repository;
+use Rhubarb\Stem\Schema\SolutionSchema;
 use Rhubarb\Stem\StemModule;
+use Rhubarb\Stem\StemSettings;
 
 class TestHarnessApplication extends Application
 {
@@ -19,6 +23,15 @@ class TestHarnessApplication extends Application
         parent::initialise();
 
         $this->developerMode = true;
+
+        Repository::setDefaultRepositoryClassName(MySql::class);
+        SolutionSchema::registerSchema('TestHarnessSchema', TestHarnessSolutionSchema::class);
+
+        $db = StemSettings::singleton();
+        $db->host = 'db';
+        $db->username = 'payments';
+        $db->password = 'payments';
+        $db->database = 'payments';
 
         ExceptionHandler::disableExceptionTrapping();
 
