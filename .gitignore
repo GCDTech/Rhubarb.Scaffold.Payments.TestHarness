@@ -3,3 +3,5 @@
 /cache/
 /deployed/
 /bin/
+
+tests/_output/*
