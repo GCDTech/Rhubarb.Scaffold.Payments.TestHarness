@@ -17,7 +17,7 @@ rhubarb.vb.create('MOTOViewBridge', function() {
                         alert('Success!');
                     },function(paymentEntity){
                         if (paymentEntity.status === 'Awaiting Authentication'){
-                            alert('Go get some auth');
+                            alert('Sorry, despite being flagged as MOTO, the bank is requesting authentication.');
                         } else {
                             alert('Failed: ' + paymentEntity.error);
                         }
