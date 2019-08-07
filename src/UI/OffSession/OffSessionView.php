@@ -32,6 +32,16 @@ class OffSessionView extends View
         <p>The first step is to capture card details below and then the interface for confirming
         a payment will be revealed.</p>
 
+        <p>Test Cards:</p>
+        <ul>
+            <li>4000002500003155 This card will let you capture authentication and should allow raising payments without
+            authentication</li>
+            <li>4000002760003184 This card will let you capture authentication but subsequent processing will still
+            insist on authentication</li>
+            <li>4000008260003178 This card will let you capture authentication but subsequent processing will fail due
+            to insufficient funds.</li>
+        </ul>
+
         <div id="capture">
             <h2>Capture card details</h2>
             <?php

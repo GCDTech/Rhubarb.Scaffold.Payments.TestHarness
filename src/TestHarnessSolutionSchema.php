@@ -2,7 +2,7 @@
 
 namespace Gcd\Payments\TestHarness;
 
-use Gcd\Scaffold\Payments\Models\PaymentTracking;
+use Gcd\Scaffold\Payments\Logic\Models\PaymentTracking;
 use Rhubarb\Stem\Schema\SolutionSchema;
 
 class TestHarnessSolutionSchema extends SolutionSchema

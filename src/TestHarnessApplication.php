@@ -6,7 +6,11 @@ use Gcd\Payments\TestHarness\UI\CustomerInitiated\CustomerInitiated;
 use Gcd\Payments\TestHarness\UI\MOTO\MOTO;
 use Gcd\Payments\TestHarness\UI\OffSession\OffSession;
 use Gcd\Payments\TestHarness\UI\Shared\SimpleLayout;
+use Gcd\Scaffold\Payments\Logic\Services\PaymentService;
+use Gcd\Scaffold\Payments\PaymentsModule;
+use Gcd\Scaffold\Payments\Stripe\Services\StripePaymentService;
 use Gcd\Scaffold\Payments\Stripe\Settings\StripeSettings;
+use Gcd\Scaffold\Payments\Stripe\StripePaymentsModule;
 use Rhubarb\Crown\Application;
 use Rhubarb\Crown\Exceptions\Handlers\ExceptionHandler;
 use Rhubarb\Crown\Layout\LayoutModule;
@@ -38,13 +42,17 @@ class TestHarnessApplication extends Application
 
         StripeSettings::singleton()->publicKey = 'pk_test_Ng9jNyqA01sIUyqrGn4BMoUb';
         StripeSettings::singleton()->secretKey = 'sk_test_BaJmnLU75P9DhiAQIdW6YxvY';
+
+        PaymentService::registerPaymentService(StripePaymentService::class);
     }
 
     protected function getModules()
     {
         return [
             new LayoutModule(SimpleLayout::class),
-            new StemModule()
+            new StemModule(),
+            new PaymentsModule(),
+            new StripePaymentsModule()
         ];
     }
 

@@ -2,6 +2,7 @@
 
 namespace Gcd\Payments\TestHarness\UI\OffSession;
 
+use Gcd\Scaffold\Payments\Logic\UseCases\TakePaymentUseCase;
 use Gcd\Scaffold\Payments\Stripe\Services\StripePaymentService;
 use Gcd\Scaffold\Payments\UI\Entities\PaymentEntity;
 use Gcd\Scaffold\Payments\UI\Entities\SetupEntity;
@@ -35,9 +36,7 @@ class OffSession extends Leaf
             $paymentEntity->description = "Off session test";
             $paymentEntity->onSession = false;
 
-            $provider = new StripePaymentService();
-
-            $provider->startPayment($paymentEntity);
+            TakePaymentUseCase::create(new StripePaymentService())->execute($paymentEntity);
 
             return $paymentEntity->status;
         });

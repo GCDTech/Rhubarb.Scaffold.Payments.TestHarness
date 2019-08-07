@@ -3,5 +3,5 @@
 /cache/
 /deployed/
 /bin/
-
+/.gcdocker/
 tests/_output/*
