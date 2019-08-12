@@ -11,6 +11,7 @@ class OffSessionModel extends LeafModel
      * @var Event Raised when we want to simulate an off session payment.
      */
     public $takePaymentEvent;
+    public $Email;
 
     public function __construct()
     {
