@@ -1,0 +1,8 @@
+$rem-units              : true !default;
+$base-space             : $base-unit;
+$content-unit           : $fixed-width/3 !default;
+$vertical-space         : $base-space;
+$touch-target           : $base-unit * 2.5;
+$padding                : $base-space;
+$margin                 : $base-space;
+$base-radius			: $base-unit / 2 !default;

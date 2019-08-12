@@ -1,0 +1,31 @@
+.u-border-right {
+	border-right: 1px solid color( border );
+}
+
+.u-border-left {
+	border-left: 1px solid color( border );
+}
+
+.u-border-top {
+	border-top: 1px solid color( border );
+}
+
+.u-border-bottom {
+	border-bottom: 1px solid color( border );
+}
+
+.u-bordered {
+	border: 1px solid color( border );
+}
+
+.u-border-rounded {
+	border-radius:$base-radius;
+}
+
+.u-border-light {
+	border:1px solid color(tertiary);
+}
+
+.u-border-thick {
+	border-width:3px;
+}

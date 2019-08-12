@@ -1,0 +1,37 @@
+/*------------------------------------------*\
+
+    shadow.scss
+
+    adds box shadow
+
+    @namespace  .u-
+
+\*------------------------------------------*/
+
+.u-shadow {
+    @include box-shadow;
+}
+
+.u-shadow-reset {
+    box-shadow: $shadow-reset;
+}
+
+.u-shadow-light {
+    box-shadow: $shadow-light;
+}
+
+.u-shadow-medium {
+    box-shadow: $shadow-medium;
+}
+
+.u-shadow-heavy {
+    box-shadow: $shadow-heavy;
+}
+
+.u-shadow-ambient {
+    box-shadow: $shadow-ambient;
+}
+
+.u-shadow-inset {
+    box-shadow: $shadow-light-inset, $shadow-medium-inset;
+}

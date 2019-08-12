@@ -1,0 +1,23 @@
+/*------------------------------------
+	OLD-IE
+*/
+
+@mixin is-old-ie {
+	@if $old-ie == true {
+		@content;
+	}
+}
+
+@mixin is-not-old-ie {
+	@if $old-ie == false {
+		@content;
+	}
+}
+
+@mixin is-ie-gte-10 {
+	@if $ie-gte-10 == true {
+		@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+			@content;
+		}
+	}
+}

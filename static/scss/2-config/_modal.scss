@@ -1,0 +1,12 @@
+/* Modal Windows */
+$modal-background		: $white !default;
+$modal-overlay-color	: rgba($black, 0.8) !default;
+$modal-padding-default  : modal-padding;
+$modal-radius-default   : $base-radius !default;
+$modal-shadow-default   : $shadow-heavy !default;
+$modal-border-default   : 0 !default;
+$modal-width-default    : $base-unit*30;
+
+/* Overlay */
+$overlay-padding-default    : overlay-padding;
+$overlay-color-default      : rgba($black, $fade);

@@ -1,0 +1,27 @@
+/* Grid */
+$grid-columns			    : 6;
+    // Set additional column amounts
+    $grid-col-x			    : 1 3 4;
+    $grid-col-x-fr		    : false;
+    $grid-column-gap	    : 1rem;
+    // Set additional column gaps
+    $grid-gap-x			    : 0 2;
+    // Set media queries
+    $grid-mqs				: orig m l;
+
+/* App */
+$app-column-gap	            : $grid-column-gap;
+    $app-column-gap-default : 0;
+    // Set additional column gaps
+    $app-gap-x			    : $grid-gap-x;
+    // Set media queries
+    $app-mqs				: $grid-mqs;
+
+/* App Wrap */
+$wrap-width				: $fixed-width / 1.5;
+$wrap-splits			: 2 3;
+$wrap-mqs				: orig m;
+
+/* Framework */
+$header-height          : $base-unit*4;
+$min-body-height        : $base-unit*36;

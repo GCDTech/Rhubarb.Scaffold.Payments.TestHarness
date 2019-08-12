@@ -1,0 +1,11 @@
+$var-presets : (
+        unit                : $base-unit,
+        modal-padding       : $base-unit,
+        overlay-padding     : $base-unit,
+);
+
+$var-presets-sm : ( );
+$var-presets-md : (
+        modal-padding       : $base-unit*2,
+);
+$var-presets-lg : ( );

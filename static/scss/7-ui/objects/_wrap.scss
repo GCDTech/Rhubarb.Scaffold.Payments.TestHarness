@@ -1,0 +1,25 @@
+/*------------------------------------------*\
+
+    _o-wrap.scss
+
+    Abstract object which acts as an outer
+    container for an element or group of elements.
+    This object sets a width (if set in config)
+    and centers it using margin: auto/
+
+    @namespace  .o-
+    @parent     .o-wrap
+
+\*------------------------------------------*/
+
+.o-wrap {
+    @include media-query(orig s m l) {
+        max-width: 100%;
+
+        @if $is-site-fluid != "true" {
+            width: $fixed-width;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+}

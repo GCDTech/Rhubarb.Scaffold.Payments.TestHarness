@@ -1,0 +1,37 @@
+/*scss/utilities/_padding.scss*/
+
+.u-pad {
+	@include padding($padding);
+}
+
+.u-pad-top-bottom {
+	@include padding($padding n, dir);
+}
+
+.u-pad-left-right {
+	@include padding(n $padding, dir);
+}
+
+.u-pad-top {
+	@include padding($padding n n n, dir);
+}
+
+.u-pad-bottom {
+	@include padding(n n $padding n, dir);
+}
+
+.u-pad-left {
+	@include padding(n n n $padding, dir);
+}
+
+.u-pad-right {
+	@include padding(n $padding n n, dir);
+}
+
+.u-pad-none {
+	padding: 0 !important;
+}
+
+.u-pad--heavy {
+	@include padding($padding * 2);
+}

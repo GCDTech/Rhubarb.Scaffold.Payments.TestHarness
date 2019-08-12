@@ -26,7 +26,7 @@ class MOTOView extends View
     protected function printViewContent()
     {
         ?>
-        <h2>Merchant initiated MOTO journey</h2>
+        <h1 class="u-delta">Merchant initiated MOTO journey</h1>
         <p>This page simulates taking money when the customer is on the phone.</p>
         <h2>Pay Account Balance Online</h2>
         <p>Your balance is <strong>&pound;<?=MOTO::BALANCE;?></strong></p>

@@ -1,0 +1,37 @@
+/*scss/utilities/_padding.scss*/
+
+.u-marg {
+	@include margin($margin);
+}
+
+.u-marg-top-bottom {
+	@include margin($margin n, dir);
+}
+
+.u-marg-left-right {
+	@include margin(n $margin, dir);
+}
+
+.u-marg-top {
+	@include margin($margin n n n, dir);
+}
+
+.u-marg-bottom {
+	@include margin(n n $margin n, dir);
+}
+
+.u-marg-left {
+	@include margin(n n n $margin, dir);
+}
+
+.u-marg-right {
+	@include margin(n $margin n n, dir);
+}
+
+.u-marg-none {
+	margin: 0;
+}
+
+.u-marg-right-half {
+	@include margin(n $margin/2 n n, dir);
+}

@@ -12,7 +12,8 @@ class MenuPage implements GeneratesResponseInterface
         ob_start();
 
         ?>
-        <ul>
+		<h1 class="u-delta u-marg-bottom">Payment Scenarios</h1>
+        <ul class="u-list-bullets">
             <li><a href="/customer-initiated/">Simple on-session payment capture</a></li>
             <li><a href="/moto/">Merchant initiated MOTO payment capture</a></li>
             <li><a href="/off-session/">Merchant initiated off-session payment from stored card</a></li>

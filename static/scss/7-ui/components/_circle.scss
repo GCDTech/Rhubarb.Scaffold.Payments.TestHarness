@@ -1,0 +1,64 @@
+$profile-height: $touch-target + 3;
+$profile-width: $profile-height;
+
+$profile-circle-small: 9px;
+
+$border-value: 2px;
+
+.c-circle {
+	border-radius: $base-radius * 30;
+}
+
+.c-circle--small {
+	height: $profile-circle-small;
+	width: $profile-circle-small;
+
+	&.is-active {
+		background:$success;
+	}
+
+	&.is-inactive {
+		background: $inactive;
+	}
+}
+
+.c-circle--absolute {
+	@include position(absolute, -16px -16px n n);
+	height: $touch-target * 1.1;
+	width: $touch-target * 1.1;
+	border: 3px solid color(footer);
+	background: color(white);
+}
+
+.c-circle--profile {
+	border-radius: $base-radius * 10;
+	position: relative;
+	border: $border-value solid color(white);
+	height: $profile-height;
+	width: $profile-width;
+	background-size: cover;
+	background-position: center;
+
+	&:after {
+		content: "";
+		@include position(absolute, -($border-value*2+1));
+		z-index: 1;
+		border-radius: $base-radius *10;
+	}
+
+	&.is-inactive {
+		opacity: 0.4;
+
+		&:after {
+			border: $border-value+1 solid $inactive;
+		}
+	}
+
+	&.is-active {
+		opacity: 1;
+
+		&:after {
+			border: $border-value+1 solid $success;
+		}
+	}
+}

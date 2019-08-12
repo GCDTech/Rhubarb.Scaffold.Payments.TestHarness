@@ -1,0 +1,38 @@
+/*------------------------------------------*\
+
+    c-module.scss
+
+    High level block of code that can be
+    reused in any position with no overwriting
+    required.
+
+
+    @namespace  .c-
+    @parent     .c-module
+
+\*------------------------------------------*/
+
+.c-module {
+	@include clear;
+	border-radius:$base-radius;
+}
+
+.c-module--section {
+	border-bottom: 1px solid color( border );
+
+	&:last-child {
+		border-bottom:none;
+	}
+}
+
+// A fixed module at the bottom of the viewport
+.c-module--fixed {
+	@include position(fixed, n 0px 0px 0px);
+	z-index: zindex(modal);
+	box-shadow: 0 -1px $base-space $box-shadow;
+	background-color: white;
+}
+
+.c-module--shadowed {
+	box-shadow: 0 19px 38px 0 rgba(0, 0, 0, 0.10), 0 15px 12px 0 rgba(172, 172, 172, 0.22);
+}

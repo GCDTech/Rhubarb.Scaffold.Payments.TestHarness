@@ -1,0 +1,24 @@
+/*------------------------------------------*\
+
+    _o-box.scss
+
+    Abstract object which contains a clearfix
+    and some padding
+
+    @namespace  .o-
+    @parent     .o-box
+
+\*------------------------------------------*/
+
+.o-box {
+	@include media-query(orig s m- m l){
+		@include clear;
+		@include padding($padding);
+		display: block;
+	}
+}
+
+.o-box--short {
+	padding-top: $padding/2;
+	padding-bottom: $padding/2;
+}

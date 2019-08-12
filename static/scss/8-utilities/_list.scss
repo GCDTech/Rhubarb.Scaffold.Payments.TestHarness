@@ -1,0 +1,38 @@
+// add more space around list items
+.u-list-spacing {
+	> * {
+		@include padding($padding);
+	}
+}
+
+.u-list-spacing-ew {
+	> * {
+		@include padding(n $padding);
+	}
+}
+
+.u-list-spacing-ns {
+	> * {
+		@include padding($padding n);
+	}
+}
+
+.u-list-bullets {
+	margin-left:$base-space;
+	list-style-type: circle;
+
+	 > * {
+		 line-height:$base-space*2;
+	 }
+}
+
+// inline list items
+.u-list-inline {
+	> * {
+		display: inline-block;
+
+		&:first-child {
+			padding-left: 0;
+		}
+	}
+}

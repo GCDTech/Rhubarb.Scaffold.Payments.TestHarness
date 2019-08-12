@@ -1,0 +1,69 @@
+/*------------------------------------------*\
+
+    _o-layout.scss
+
+    Abstract object which helps create
+    a simple grid layout.
+    This helps define rows and items.
+    Widths are defined using utility classes
+    (see u-fractions)
+
+    @namespace  .o-
+    @parent     .o-layout
+    @children   .o-layout__item
+                .o-layout__filler
+    @variations .o-layout--fixed
+                .o-layout--flex
+
+\*------------------------------------------*/
+
+
+.o-layout {
+    @include clear;
+    font-size: $base-font-size;
+    margin-left: -$base-space;
+}
+
+.o-layout--fixed {
+    margin-left: 0;
+}
+
+.o-layout--tight {
+    margin-left: 0;
+
+    > .o-layout__item {
+        padding-left: 0;
+    }
+}
+
+.o-layout--loose {
+    margin-left: -($base-space*2);
+
+    > .o-layout__item {
+        padding-left: $base-space*2;
+    }
+
+}
+
+.o-layout__item {
+    @include base-font-size;
+    display: inline-block;
+    padding-left: $base-space;
+    vertical-align: top;
+    width: 100%;
+    letter-spacing:0;
+    word-spacing:0;
+    float:left;
+}
+
+.o-layout--small-padding {
+    margin-left: -($base-space/2);
+
+    > .o-layout__item {
+        padding-left: $base-space/2;
+    }
+}
+
+.o-layout__filler {
+    overflow: hidden;
+}

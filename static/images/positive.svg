@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="238px" height="274px" viewBox="0 0 238 274" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 56.3 (81716) - https://sketch.com -->
+    <title>positive</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-5.3%" y="-36.0%" width="110.7%" height="172.0%" filterUnits="objectBoundingBox" id="filter-1">
+            <feGaussianBlur stdDeviation="3" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="positive" transform="translate(10.000000, 10.000000)">
+            <g id="Group">
+                <circle id="Oval" stroke="#0FB4AC" stroke-width="19" fill="#FFFFFF" cx="102" cy="102" r="102"></circle>
+                <g id="check" transform="translate(41.000000, 21.000000)" fill="#0FB4AC" fill-rule="nonzero" stroke="#FFFFFF" stroke-width="10">
+                    <path d="M176.009318,0.141298602 C179.559007,3.47248522 181.574468,8.13131236 181.574468,13.0090228 C181.574468,17.8873568 179.558492,22.5467514 176.007956,25.8780244 L73.5643916,128.779999 C70.2664307,132.119996 65.773993,134 61.0860223,134 C56.3980515,134 51.9056139,132.119996 48.6220862,128.794557 L0.437465046,80.3932324 C-4.14036264,75.9513228 -6.00972183,69.3991095 -4.47038678,63.2016088 C-2.9299417,56.999639 1.79149294,52.0900826 7.91954674,50.3260532 C14.0526244,48.5605776 20.6573391,50.2157728 25.3094018,54.7309573 L61.0893016,90.7858086 L151.130782,0.220000658 C154.428742,-3.11999631 158.92118,-5 163.609151,-5 C168.260173,-5 172.718731,-3.1495147 176.009318,0.141298602 Z" id="Path"></path>
+                </g>
+            </g>
+            <ellipse id="Oval" fill="#ECF2F1" filter="url(#filter-1)" cx="102.5" cy="244.5" rx="84.5" ry="12.5"></ellipse>
+        </g>
+    </g>
+</svg>

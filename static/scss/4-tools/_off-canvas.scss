@@ -1,0 +1,30 @@
+/*------------------------------------
+	# OFF-CANVAS
+
+	Throw and element off the page.
+	This makes it still accessible by screen-readers, labels etc.
+	But doesn't appear on the UI
+*/
+
+@mixin off-canvas {
+    @include position(absolute, 0 0 0 -9999px);
+}
+
+@mixin visually-hide {
+    /* https://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
+    position: absolute !important;
+    height: 1px; width: 1px;
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+@mixin visually-show {
+    @include padding($base-space/2);
+    background-color: color(tint);
+    color: color(link);
+    border: 1px solid color(link);
+    height: auto; width: auto;
+    clip: auto;
+    z-index: 100;
+}

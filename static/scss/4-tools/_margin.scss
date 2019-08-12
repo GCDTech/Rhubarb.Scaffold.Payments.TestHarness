@@ -1,0 +1,7 @@
+@mixin margin(
+	$margin,
+    $dir: false,
+	$important: false
+) {
+	@include box-model(margin, $margin, $dir, $important)
+}

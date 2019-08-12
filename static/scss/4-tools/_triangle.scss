@@ -1,0 +1,36 @@
+/*------------------------------------------*\
+
+   Use
+
+   @include triangle(direction, width, height, color);
+
+   $sizeW - Width of triangle
+   $sizeH - Height of triangle
+
+\*------------------------------------------*/
+
+@mixin triangle($direction, $sizeW, $sizeH, $color) {
+	content: '';
+	display: block;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	z-index: zindex( base ) + 1;
+
+	@if $direction == top {
+		border-width: 0 $sizeH $sizeW $sizeH;
+		border-color: transparent transparent $color transparent;
+	}
+	@if $direction == bottom {
+		border-width: $sizeH $sizeW 0 $sizeH;
+		border-color: $color transparent transparent transparent;
+	}
+	@if $direction == left {
+		border-width: $sizeH $sizeW $sizeH 0;
+		border-color: transparent $color transparent transparent;
+	}
+	@if $direction == right {
+		border-width: $sizeH 0 $sizeH $sizeW;
+		border-color: transparent transparent transparent $color;
+	}
+}

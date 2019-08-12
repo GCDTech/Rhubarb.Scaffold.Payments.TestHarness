@@ -1,0 +1,18 @@
+/*------------------------------------------*\
+
+    _c-main.scss
+
+    The space in between the Header and
+    Footer
+
+    @namespace  .c-
+    @parent     .c-main
+
+\*------------------------------------------*/
+
+.c-main {
+    background: color(site);
+    @include screen-size(m) {
+        min-height: $min-body-height;
+    }
+}

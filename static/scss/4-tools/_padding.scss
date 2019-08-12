@@ -1,0 +1,7 @@
+@mixin padding(
+	$padding,
+    $dir: false,
+	$important: false
+) {
+	@include box-model(padding, $padding, $dir, $important)
+}

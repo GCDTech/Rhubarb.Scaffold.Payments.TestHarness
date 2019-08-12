@@ -1,0 +1,122 @@
+// GRID BOX
+// Create grid systems.
+// .o-grid-box : uses the default number of grid-columns and default gap size
+// .o-grid-box--col-[n] : uses an additional grid, specified in config. There can be any number of grids.
+// .o-grid-box--col-[n]@[t] : swap out grids for different sized screens
+// .o-grid-box--gap-[n] : multiply the default gap by a value to adjust the gap.
+//      eg. o-grid-box--gap-0 means no gap.
+//          o-grid-box--gap-2 means double gap
+// .o-grid-box--gap-[n]@[t] : adjust gaps based on screen size
+
+.o-grid-box {
+    display: grid;
+    grid-template-columns: repeat($grid-columns, minmax(0, 1fr));
+    grid-gap: $grid-column-gap;
+
+    /*( For Testing
+    * {
+        background-color: color(shade, $shade-amount);
+    }*/
+    @if $grid-col-x != 'none' {
+        @each $mq in $grid-mqs {
+            @each $col-x in $grid-col-x {
+                @if $mq != 'orig' {
+                    @include screen-size($mq) {
+                        &.\+cols-#{$col-x}\@#{$mq} {
+                            grid-template-columns: repeat($col-x, minmax(0, 1fr));
+                        }
+                    }
+                } @else {
+                    &.\+cols-#{$col-x} {
+                        grid-template-columns: repeat($col-x, minmax(0, 1fr));
+                        @if $grid-col-x-fr != false {
+                            @include grid-fr($col-x);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @if $grid-gap-x != 'none' {
+        @each $mq in $grid-mqs {
+            @each $gap-x in $grid-gap-x {
+                @if $mq != 'orig' {
+                    @include screen-size($mq) {
+                        &.\+gap-#{$gap-x}\@#{$mq} {
+                            grid-gap: $grid-column-gap*$gap-x;
+                        }
+                    }
+                } @else {
+                    &.\+gap-#{$gap-x} {
+                        grid-gap: $grid-column-gap*$gap-x;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+// GRID-ITEM
+// Items within a grid
+// .o-grid-item: default item. Spans one column
+// .o-grid-item.+full: Spans all columns
+// .o-grid-item.+[n]: Spans "n" columns
+// .o-grid-item.+[n]@[t]: Spans "n" columns at different screen sizes
+
+.o-grid-item {
+    align-self: stretch;
+    justify-self: stretch;
+    &.\+full {
+        @include media-query(orig m-) {
+            grid-column: 1 / -1;
+        }
+    }
+
+    @each $mq in $grid-mqs {
+        @for $i from 1 through $grid-columns {
+            @if $mq != 'orig' {
+                @include screen-size($mq) {
+                    &.\+span-#{$i}\@#{$mq} {
+                        grid-column: auto / span $i;
+                    }
+                }
+            } @else {
+                &.\+span-#{$i} {
+                    grid-column: auto / span $i;
+                }
+            }
+        }
+    }
+
+
+    // GRID-INSET
+    // .o-grid-inset.+[n]: Inset "n" columns
+
+    @each $mq in $grid-mqs {
+        @for $i from 1 through $grid-columns {
+            @if $mq != 'orig' {
+                @include screen-size($mq) {
+                    &.\+inset-#{$i}\@#{$mq} {
+                        grid-column-start: $i;
+                    }
+                }
+            } @else {
+                &.\+inset-#{$i} {
+                    grid-column-start: $i;
+                }
+            }
+        }
+    }
+}
+
+
+
+// GRID FRACTION
+// Spans fractions of the grid.
+// Caveats: Only fractions that will take up full columns.
+//      eg. If the grid has 6 columns, you cannot have 1/4 item.
+// .o-grid-fr.+1/2: half column
+
+@include grid-fr($grid-columns, 'fr');

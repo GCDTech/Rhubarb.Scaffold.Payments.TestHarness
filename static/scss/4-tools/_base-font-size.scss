@@ -1,0 +1,16 @@
+@mixin base-font-size {
+    font-size: $base-font-size;
+    font-size: rem($base-font-size);
+    @if size-ratio(medium) != "1" {
+        @include screen-size(m-) {
+            font-size: $base-font-size * size-ratio(medium);
+            font-size: rem($base-font-size * size-ratio(medium));
+        }
+    }
+    @if size-ratio(small) != "1" {
+        @include screen-size(s-) {
+            font-size: $base-font-size * size-ratio(small);
+            font-size: rem($base-font-size * size-ratio(small));
+        }
+    }
+}

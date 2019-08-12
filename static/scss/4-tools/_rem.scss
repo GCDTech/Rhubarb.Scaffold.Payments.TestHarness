@@ -1,0 +1,21 @@
+@mixin rem(
+	$element: font-size,
+    $pxval:	$base-space,
+	$important: false,
+    $unit:	rem
+) {
+	$importantFlag : null;
+	@if $important == true {
+		$importantFlag : !important;
+	}
+	@include is-old-ie {
+		#{$element}: $pxval $importantFlag;
+	}
+	@include is-not-old-ie {
+		@if is-number($pxval) and unit($pxval) == "px" and $unit == "rem" {
+			#{$element}: rem($pxval) $importantFlag;
+		} @else {
+			#{$element}: $pxval $importantFlag;
+		}
+	}
+}

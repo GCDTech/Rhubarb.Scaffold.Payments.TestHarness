@@ -1,0 +1,21 @@
+$var-add : (
+);
+$var-add-sm : (
+);
+$var-add-md : (
+);
+$var-add-lg : (
+);
+
+
+$vars : map_merge($var-presets, $var-theme);
+$vars : map_merge($vars, $var-add);
+
+$vars-sm : map_merge($var-presets-sm, $var-theme-sm);
+$vars-sm : map_merge($vars-sm, $var-add-sm);
+
+$vars-md : map_merge($var-presets-md, $var-theme-md);
+$vars-md : map_merge($vars-md, $var-add-md);
+
+$vars-lg : map_merge($var-presets-lg, $var-theme-lg);
+$vars-lg : map_merge($vars-lg, $var-add-lg);

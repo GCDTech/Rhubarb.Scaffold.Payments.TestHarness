@@ -1,0 +1,18 @@
+.c-status-template {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+
+	> * {
+		@media only screen and (min-width: 1600px) {
+			flex-basis: 20%;
+			max-width: 20%;
+		}
+		flex-basis: 25%;
+		max-width: 25%;
+		min-height: 310px;
+		display: flex;
+		flex-direction: column;
+		padding: $base-space;
+	}
+}

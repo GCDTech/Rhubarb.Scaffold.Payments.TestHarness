@@ -1,0 +1,11 @@
+// CSS Variables
+
+// Set to "true" to use exclusively native CSS.
+// This will impair all versions of Internet Explorers
+$css-vars-use-native    : false !default;
+
+// iOS version
+$iOS				    : 11.2;
+
+// IE Support
+$ie-gte-10              : true;

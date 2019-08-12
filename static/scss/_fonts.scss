@@ -1,0 +1,39 @@
+/*------------------------------------------*\
+
+    fonts.scss
+
+\*------------------------------------------*/
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon/icomoon.eot?mxm45i');
+  src:  url('../fonts/icomoon/icomoon.eot?mxm45i#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon/icomoon.ttf?mxm45i') format('truetype'),
+    url('../fonts/icomoon/icomoon.woff?mxm45i') format('woff'),
+    url('../fonts/icomoon/icomoon.svg?mxm45i#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face{
+font-family:"Avenir Next W00_n4";
+src:url("../fonts/avenir-next/069faa0e-9913-48c4-9ef7-89a4bc080b65.eot?#iefix") format("eot")
+}
+@font-face{
+font-family:"Avenir Next W00";
+src:url("../fonts/avenir-next/069faa0e-9913-48c4-9ef7-89a4bc080b65.eot?#iefix");
+src:url("../fonts/avenir-next/069faa0e-9913-48c4-9ef7-89a4bc080b65.eot?#iefix") format("eot"),url("../fonts/avenir-next/7db1f672-3a8f-4d19-9c49-7f61aed450b5.woff2") format("woff2"),url("../fonts/avenir-next/4ab86b35-c0c2-42b5-98ad-4b6eba66b197.woff") format("woff"),url("../fonts/avenir-next/276b3566-1c3b-4bc1-8915-15314f091f29.ttf") format("truetype"),url("../fonts/avenir-next/5d02f5f4-46e7-453a-aef9-3e7106d7bb68.svg#5d02f5f4-46e7-453a-aef9-3e7106d7bb68") format("svg");
+font-weight: 400;
+font-style: normal;
+}
+@font-face{
+font-family:"Avenir Next W00_n7";
+src:url("../fonts/avenir-next/fb4117a5-14ee-4035-8692-935bfff7fc2e.eot?#iefix") format("eot")
+}
+@font-face{
+font-family:"Avenir Next W00";
+src:url("../fonts/avenir-next/fb4117a5-14ee-4035-8692-935bfff7fc2e.eot?#iefix");
+src:url("../fonts/avenir-next/fb4117a5-14ee-4035-8692-935bfff7fc2e.eot?#iefix") format("eot"),url("../fonts/avenir-next/4c04fb14-abdb-4f93-82bb-734d1b84307b.woff2") format("woff2"),url("../fonts/avenir-next/04d2f223-2786-40c9-8481-be9dd47d8e7f.woff") format("woff"),url("../fonts/avenir-next/bce3274e-f498-48ae-b269-a6930df496e7.ttf") format("truetype"),url("../fonts/avenir-next/68f0375d-f66f-4f88-822a-5a0b61d2efc0.svg#68f0375d-f66f-4f88-822a-5a0b61d2efc0") format("svg");
+font-weight: 700;
+font-style: normal;
+}

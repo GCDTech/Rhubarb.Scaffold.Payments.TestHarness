@@ -1,0 +1,34 @@
+
+.o-grid {
+    @include is-old-ie {
+        display: block;
+    }
+    @include is-not-old-ie {
+        display: grid;
+        grid-gap: $base-space;
+    }
+}
+
+.o-grid--tight {
+    grid-gap: 0;
+}
+
+.o-grid--loose {
+    grid-gap: $base-space*2;
+}
+
+@each $mq in orig m l {
+    @for $i from 1 through 5 {
+        @if $mq != 'orig' {
+            @include screen-size($mq) {
+                .o-grid--#{$i}\@#{$mq} {
+                    grid-template-columns: repeat($i, minmax(0, 1fr));
+                }
+            }
+        } @else {
+            .o-grid--#{$i} {
+                grid-template-columns: repeat($i, minmax(0, 1fr));
+            }
+        }
+    }
+}

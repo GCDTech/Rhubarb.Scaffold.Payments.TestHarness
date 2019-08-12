@@ -1,0 +1,9 @@
+$screen-size: (
+        s				: $fixed-width/4,	// [number]
+        m				: $fixed-width/2,	// [number]
+        l				: $fixed-width,		// [number]
+        xl				: $fixed-width*1.5,		// [number]
+
+        sh              : 360px,
+        mh              : 500px
+);

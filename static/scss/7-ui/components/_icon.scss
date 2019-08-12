@@ -1,0 +1,65 @@
+/*------------------------------------------*\
+
+    _c-icon.scss
+
+    Icons that can be used in HTML or as
+    content using pseudo classes
+
+    @namespace  .c-
+    @parent     .c-icon
+
+\*------------------------------------------*/
+
+.c-icon {
+    color:inherit;
+    width:1em;
+    height:1em;
+    fill:currentColor;
+
+    font-family: font-family(icon);
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+    font-size: inherit;
+    vertical-align: bottom;
+
+    /* For safety - reset parent styles, that can break glyph codes*/
+    font-variant: normal;
+    text-transform: none;
+}
+
+[class^="c-icon--"]:before, [class*=" c-icon--"]:before {
+    font-family: "icomoon", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+    display: inline-block;
+    text-decoration: inherit;
+    width: 1em;
+    text-align: center;
+}
+
+/*
+ * The base icon component
+ */
+.c-icon {
+
+    // Icons inside buttons need to be
+    // adjusted to appear vertically aligned
+    &:before {
+        .c-button & {
+            line-height: inherit;
+        }
+    }
+
+}
+
+.c-icon--grid:before {
+    content:"\e900";
+}
+
+.c-icon--list:before {
+    content: "\e901";
+}
+
+

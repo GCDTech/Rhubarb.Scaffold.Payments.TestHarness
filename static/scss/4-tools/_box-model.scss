@@ -1,0 +1,170 @@
+@mixin box-model-fallback {
+    @include is-old-ie {
+        @content;
+    }
+    @supports not (padding-block-start: 10px) {
+        @content;
+    }
+}
+
+@mixin box-model(
+    $property,
+    $value,
+    $dir,
+    $important,
+    $unit:rem
+) {
+    @if length($value) == 1 and $value != n {
+        @include rem($property, $value, $important);
+    }
+
+    @if length($value) == 2 {
+        $value-y: nth($value, 1);
+        $value-x: nth($value, 2);
+        @if $value-x != n and $value-y != n {
+            @include rem($property, $value-y $value-x, $important, $unit);
+        }
+        @else {
+            @if $value-y != n {
+                @if $dir != false {
+                    @supports (padding-block-start: 10px) {
+                        @include rem(#{$property}-block-start, $value-y, $important, $unit);
+                        @include rem(#{$property}-block-end, $value-y, $important, $unit);
+                    }
+                    @include box-model-fallback {
+                        @include rem(#{$property}-top, $value-y, $important, $unit);
+                        @include rem(#{$property}-bottom, $value-y, $important, $unit);
+                    }
+                } @else {
+                    @include rem(#{$property}-top, $value-y, $important, $unit);
+                    @include rem(#{$property}-bottom, $value-y, $important, $unit);
+                }
+            }
+            @if $value-x != n {
+                @if $dir != false {
+                    @supports (padding-block-start: 10px) {
+                        @include rem(#{$property}-inline-start, $value-x, $important, $unit);
+                        @include rem(#{$property}-inline-end, $value-x, $important, $unit);
+                    }
+                    @include box-model-fallback {
+                        @include rem(#{$property}-left, $value-x, $important, $unit);
+                        @include rem(#{$property}-right, $value-x, $important, $unit);
+                    }
+                } @else {
+                    @include rem(#{$property}-left, $value-x, $important, $unit);
+                    @include rem(#{$property}-right, $value-x, $important, $unit);
+                }
+            }
+        }
+    }
+
+    @if length($value) == 3 {
+        $value-y-top: nth($value, 1);
+        $value-x: nth($value, 2);
+        $value-y-bottom: nth($value, 3);
+        @if $value-y-top != n {
+            @if $dir != false {
+                @supports (padding-block-start: 10px) {
+                    @include rem(#{$property}-block-start, $value-y-top, $important, $unit);
+                }
+                @include box-model-fallback {
+                    @include rem(#{$property}-top, $value-y-top, $important, $unit);
+                }
+            } @else {
+                @include rem(#{$property}-top, $value-y-top, $important, $unit);
+            }
+        }
+        @if $value-x != n {
+            @if $dir != false {
+                @supports (padding-block-start: 10px) {
+                    @include rem(#{$property}-inline-start, $value-x, $important, $unit);
+                    @include rem(#{$property}-inline-end, $value-x, $important, $unit);
+                }
+                @include box-model-fallback {
+                    @include rem(#{$property}-inline-start, $value-x, $important, $unit);
+                    @include rem(#{$property}-inline-end, $value-x, $important, $unit);
+                }
+            } @else {
+                @include rem(#{$property}-inline-start, $value-x, $important, $unit);
+                @include rem(#{$property}-inline-end, $value-x, $important, $unit);
+            }
+        }
+        @if $value-y-bottom != n {
+            @if $dir != false {
+                @supports (padding-block-start: 10px) {
+                    @include rem(#{$property}-block-end, $value-y-bottom, $important, $unit);
+                }
+                @include box-model-fallback {
+                    @include rem(#{$property}-bottom, $value-y-bottom, $important, $unit);
+                }
+            } @else {
+                @include rem(#{$property}-bottom, $value-y-bottom, $important, $unit);
+            }
+        }
+    }
+
+    @if length($value) == 4 {
+        $value-top: nth($value, 1);
+        $value-right: nth($value, 2);
+        $value-bottom: nth($value, 3);
+        $value-left: nth($value, 4);
+        @if $value-top != n {
+            @if $dir != false {
+                @supports (padding-block-start: 10px) {
+                    @include rem(#{$property}-block-start, $value-top, $important, $unit);
+                }
+                @include box-model-fallback {
+                    @include rem(#{$property}-top, $value-top, $important, $unit);
+                }
+            } @else {
+                @include rem(#{$property}-top, $value-top, $important, $unit);
+            }
+        }
+        @if $value-right != n {
+            @if $dir != false {
+                @supports (padding-block-start: 10px) {
+                    @include rem(#{$property}-inline-end, $value-right, $important, $unit);
+                }
+                @include box-model-fallback {
+                    @include ltr {
+                        @include rem(#{$property}-right, $value-right, $important, $unit);
+                    }
+                    @include rtl {
+                        @include rem(#{$property}-left, $value-right, $important, $unit);
+                    }
+                }
+            } @else {
+                @include rem(#{$property}-right, $value-right, $important, $unit);
+            }
+        }
+        @if $value-bottom != n {
+            @if $dir != false {
+                @supports (padding-block-start: 10px) {
+                    @include rem(#{$property}-block-end, $value-bottom, $important, $unit);
+                }
+                @include box-model-fallback {
+                    @include rem(#{$property}-bottom, $value-bottom, $important, $unit);
+                }
+            } @else {
+                @include rem(#{$property}-bottom, $value-bottom, $important, $unit);
+            }
+        }
+        @if $value-left != n {
+            @if $dir != false {
+                @supports (padding-block-start: 10px) {
+                    @include rem(#{$property}-inline-start, $value-left, $important, $unit);
+                }
+                @include box-model-fallback {
+                    @include ltr {
+                        @include rem(#{$property}-left, $value-right, $important, $unit);
+                    }
+                    @include rtl {
+                        @include rem(#{$property}-right, $value-right, $important, $unit);
+                    }
+                }
+            } @else {
+                @include rem(#{$property}-left, $value-left, $important, $unit);
+            }
+        }
+    }
+}

@@ -1,0 +1,118 @@
+/*------------------------------------*\
+
+   	SAFE AREA INSET
+
+	Create alternative spacing for
+	iPhoneX
+
+	Example
+	@include safe-area-inset(padding, 10px)
+
+/*------------------------------------*/
+
+@mixin safe-area-inset-part(
+    $os,
+    $version,
+    $selector,
+    $position,
+    $thisValue,
+    $functionOld,
+    $functionNew
+) {
+    $positionInset : $position;
+    @if $position == 'block-start' {
+        $positionInset: top;
+    } @elseif $position == 'inline-end' {
+        $positionInset: right;
+    } @elseif $position == 'block-end' {
+        $positionInset: bottom;
+    } @elseif $position == 'inline-start' {
+        $positionInset: left;
+    }
+    @if $os < $version {
+        #{$selector}-#{$position}: calc(max(#{$thisValue}, #{$functionOld}(safe-area-inset-#{$positionInset})));
+    }
+    #{$selector}-#{$position}: calc(max(#{$thisValue}, #{$functionNew}(safe-area-inset-#{$positionInset})));
+}
+
+// iPhoneX padding
+@mixin safe-area-inset (
+    $selector,
+    $values,
+    $position: '',
+    $dir: 'false'
+) {
+    $functionOld: constant;
+    $functionNew: env;
+    $versionSupport: 11.2;
+    $top: top;
+    $right: right;
+    $bottom: bottom;
+    $left: left;
+    @if $dir != "false" {
+        $top: block-start;
+        $right: inline-end;
+        $bottom: block-end;
+        $left: inline-start;
+    }
+    @supports (padding: max(0px)) {
+
+        // If it's padding or margin
+        @if $selector == 'padding' or $selector == 'margin' {
+            @if length($values) == 1 and $values != n {
+                @include safe-area-inset-part($iOS, $versionSupport, $selector, $top,       $values, $functionOld, $functionNew);
+                @include safe-area-inset-part($iOS, $versionSupport, $selector, $right,     $values, $functionOld, $functionNew);
+                @include safe-area-inset-part($iOS, $versionSupport, $selector, $bottom,    $values, $functionOld, $functionNew);
+                @include safe-area-inset-part($iOS, $versionSupport, $selector, $left,      $values, $functionOld, $functionNew);
+            }
+            @elseif length($values) == 2 {
+                $valuesY : nth($values, 1);
+                $valuesX : nth($values, 2);
+                @if $valuesY != n {
+                    @include safe-area-inset-part($iOS, $versionSupport, $selector, $top,       $valuesY, $functionOld, $functionNew);
+                    @include safe-area-inset-part($iOS, $versionSupport, $selector, $bottom,    $valuesY, $functionOld, $functionNew);
+                }
+                @if $valuesX != n {
+                    @include safe-area-inset-part($iOS, $versionSupport, $selector, $left,      $valuesX, $functionOld, $functionNew);
+                    @include safe-area-inset-part($iOS, $versionSupport, $selector, $right,     $valuesX, $functionOld, $functionNew);
+                }
+            }
+            @elseif length($values) == 3 {
+                $valuesT : nth($values, 1);
+                $valuesX : nth($values, 2);
+                $valuesB : nth($values, 3);
+                @if $valuesT != n {
+                    @include safe-area-inset-part($iOS, $versionSupport, $selector, $top,       $valuesT, $functionOld, $functionNew);
+                }
+                @if $valuesB != n {
+                    @include safe-area-inset-part($iOS, $versionSupport, $selector, $bottom,    $valuesB, $functionOld, $functionNew);
+                }
+                @if $valuesX != n {
+                    @include safe-area-inset-part($iOS, $versionSupport, $selector, $left,      $valuesX, $functionOld, $functionNew);
+                    @include safe-area-inset-part($iOS, $versionSupport, $selector, $right,     $valuesX, $functionOld, $functionNew);
+                }
+            }
+            @elseif length($values) == 4 {
+                $valuesT : nth($values, 1);
+                $valuesR : nth($values, 2);
+                $valuesB : nth($values, 3);
+                $valuesL : nth($values, 4);
+                @if $valuesT != n {
+                    @include safe-area-inset-part($iOS, $versionSupport, $selector, $top,       $valuesT, $functionOld, $functionNew);
+                }
+                @if $valuesR != n {
+                    @include safe-area-inset-part($iOS, $versionSupport, $selector, $right,     $valuesR, $functionOld, $functionNew);
+                }
+                @if $valuesB != n {
+                    @include safe-area-inset-part($iOS, $versionSupport, $selector, $bottom,    $valuesB, $functionOld, $functionNew);
+                }
+                @if $valuesL != n {
+                    @include safe-area-inset-part($iOS, $versionSupport, $selector, $left,      $valuesL, $functionOld, $functionNew);
+                }
+            }
+
+        } @else {
+            @include safe-area-inset-part($iOS, $versionSupport, $selector, $position, $values, $functionOld, $functionNew);
+        }
+    }
+}

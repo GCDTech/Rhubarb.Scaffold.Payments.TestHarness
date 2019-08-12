@@ -59,11 +59,13 @@ class SimpleLayout extends Layout
             <?php $this->printHead(); ?>
         </head>
         <body <?= $this->getBodyCssClass(); ?>>
-        <div class="g-app">
-            <?php $this->printTop(); ?>
-            <?= LayoutModule::getBodyItemsAsHtml(); ?>
-            <?php $this->printContent($content); ?>
-            <?php $this->printTail(); ?>
+        <div class="g-app o-wrap">
+			<div class="u-pad--heavy">
+				<?php $this->printTop(); ?>
+				<?= LayoutModule::getBodyItemsAsHtml(); ?>
+				<?php $this->printContent($content); ?>
+				<?php $this->printTail(); ?>
+			</div>
         </div>
         </body>
         </html>

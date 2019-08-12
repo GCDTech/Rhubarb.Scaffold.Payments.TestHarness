@@ -1,0 +1,122 @@
+/*------------------------------------------*\
+
+    _c-table.scss
+
+
+    @namespace  .c-
+    @parent     .c-table
+
+\*------------------------------------------*/
+
+.c-table {
+	@include margin($margin 0);
+
+	th {
+		font-weight:bold;
+	}
+
+	th, td {
+		@include margin($margin/4 0);
+		@include padding($padding/2);
+
+		&:first-child {
+			padding-left:0;
+		}
+		&:last-child {
+			padding-right:0;
+		}
+	}
+
+	&.\+priority {
+		td, th {
+			@include screen-size(m-) {
+				display: none;
+			}
+		}
+	}
+
+	// Rounded
+	&.\+rounded {
+		@include table-rounded($base-radius);
+	}
+
+
+	// Borders
+	&.\+lined {
+		@include table-borders(lined);
+	}
+	&.\+ruled {
+		@include table-borders(ruled);
+	}
+	&.\+grid {
+		@include table-borders(grid);
+	}
+	&.\+frame {
+		@include table-borders(framed);
+	}
+
+
+	// Patterns
+	&.\+stripes {
+		tbody {
+			@include table-pattern(stripes, color(shade, $shade-amount));
+		}
+	}
+	&.\+bars {
+		tbody {
+			@include table-pattern(bars, color(shade, $shade-amount));
+		}
+	}
+	&.\+chequered {
+		tbody {
+			@include table-pattern(chequered, color(shade, $shade-amount));
+		}
+	}
+
+	&.\+flat {
+		tbody {
+			@include background-color(color(white));
+		}
+	}
+
+
+	// Cell Padding
+	&.\+padded-cells {
+		@include table-padded-cells;
+	}
+	&.\+valign.\+middle {
+		td, th {
+			vertical-align: middle;
+		}
+	}
+}
+
+.c-table--collapse-h {
+	@include table-layout(collapse-horizontally);
+
+	tr {
+		@include margin(0 $margin);
+
+		&:first-child {
+			margin-left: 0;
+		}
+
+		@include screen-size(m) {
+			tr{
+				@include margin(0 $margin);
+			}
+		}
+	}
+}
+
+.c-table--collapse-v {
+	@include table-layout(collapse-vertically);
+
+	td {
+
+		&:before {
+			font-weight: bold;
+			width: $base-space*8;
+		}
+	}
+}

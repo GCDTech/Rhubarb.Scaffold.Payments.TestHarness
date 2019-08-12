@@ -1,0 +1,31 @@
+%button-reset {
+    background-color: transparent;
+    border: 0;
+    display: block;
+    padding: 0;
+}
+
+%text-field {
+    @include field;
+}
+
+%text-area {
+    @include padding($padding/2 n);
+    line-height: inherit;
+}
+
+%select-field {
+    @include padding(n $base-space*2 n n);
+    background:
+            $field-bg
+            url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="32" height="24" viewBox="0 0 32 24"><polygon points="0,0 32,0 16,24" style="fill: rgba%280, 0, 0, 0.5%29"></polygon></svg>')
+            no-repeat
+            right $base-space/2 center;
+    background-size: 9px 6px;
+    color: color(link);
+    -webkit-appearance: none;
+    &:hover {
+        @include background-color(color(link));
+        border-color: color(link);
+    }
+}

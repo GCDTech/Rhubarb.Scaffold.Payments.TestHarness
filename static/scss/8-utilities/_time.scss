@@ -1,0 +1,17 @@
+$time-unit: $duration;
+
+.u-t-1\/2 {
+    animation-duration: $time-unit/2;
+    transition: $time-unit/2;
+}
+
+.u-t,
+.u-t-1 {
+    animation-duration: $time-unit;
+    transition: $time-unit;
+}
+
+.u-t-2 {
+    animation-duration: 2*$time-unit;
+    transition: 2*$time-unit;
+}

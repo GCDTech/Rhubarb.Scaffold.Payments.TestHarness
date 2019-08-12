@@ -1,0 +1,16 @@
+// Buttons
+$button-border          : 0 !default;
+$button-gradient        : false !default;
+$has-button-shadow      : false !default;
+$button-radius          : $base-radius/2 !default;
+$large-button-height    : $touch-target*1.5;
+$button-height			: $touch-target;
+
+$button-font-family     : inherit;
+$button-font-weight     : normal;
+
+$button-hollow-border-width    : 1px;
+
+$button-color           : darken($white, 10%);
+$button-color-primary   : $brand-color-2;
+$button-color-secondary	: $brand-color-3;

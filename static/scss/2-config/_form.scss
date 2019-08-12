@@ -1,0 +1,10 @@
+/* Fields */
+$input-height			: $touch-target + 2;
+$field-border-width     : 1px !default; // This can be a single value or 2 / 3 / 4-length map value
+$field-border-color     : color(border, $fade*2);
+$field-radius           : $base-radius/4 !default;
+$field-padding          : 0 $base-radius/2 !default;
+$select-icon            : '';
+
+$field-bg               : $white;
+$field-font-family      : inherit;

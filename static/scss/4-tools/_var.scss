@@ -1,0 +1,17 @@
+@mixin get-var($var, $map: $vars) {
+    --#{$var}: #{map-get($map, $var)};
+}
+
+@mixin var($property, $varName) {
+
+    @if $css-vars-use-native != "true" {
+        #{$property}: map-get($vars, $varName);
+    }
+    #{$property}: var(--#{$varName}, map-get($vars, $varName));
+}
+
+@mixin var-fallback {
+    @if $css-vars-use-native != "true" {
+        @content;
+    }
+}

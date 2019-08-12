@@ -1,0 +1,137 @@
+.c-app {
+    //min-height: 100vh;
+    position: relative;
+}
+
+.c-app-box {
+    align-items: stretch;
+    justify-items: stretch;
+    @if $app-column-gap != 0 {
+        grid-gap: $app-column-gap;
+    }
+    @include media-query(orig m l) {
+        display: grid;
+        height: 100%;
+        position: relative;
+    }
+
+    /* For Testing
+    grid-gap: $app-column-gap;
+    > * {
+        background-color: color(shade, $shade-amount);
+    }*/
+
+    &.\+x {
+        grid-template-columns: [cols-start
+        left-start] auto [left-end
+        middle-start] minmax(0, 1fr) [middle-end
+        right-start] auto [right-end
+        cols-end];
+    }
+
+    &.\+y {
+        grid-template-rows:
+                [rows-start
+        head-start] auto [head-end
+        body-start] minmax(0, 1fr) [body-end
+        foot-start] auto [foot-end
+        rows-end];
+    }
+
+    @if $app-gap-x != 'none' {
+        @each $mq in $app-mqs {
+            @each $gap-x in $app-gap-x {
+                @if $mq != 'orig' {
+                    @include screen-size($mq) {
+                        &.\+gap-#{$gap-x}\@#{$mq} {
+                            grid-gap: $app-column-gap*$gap-x;
+                        }
+                    }
+                } @else {
+                    &.\+gap-#{$gap-x} {
+                        grid-gap: $app-column-gap*$gap-x;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.c-app-item {
+    overflow: auto;
+    // Block Flow
+    &.\+top {
+        grid-row: head-start / head-end;
+    }
+
+    &.\+middle {
+        grid-row: body-start / body-end;
+    }
+
+    &.\+bottom {
+        grid-row: foot-start / foot-end;
+    }
+
+    // Inline Flow
+    &.\+left {
+        grid-column: left-start / left-end;
+    }
+
+    &.\+center {
+        grid-column: middle-start / middle-end;
+    }
+
+    &.\+right {
+        grid-column: right-start / right-end;
+    }
+}
+
+
+
+
+/* Wrapper (no margin auto) */
+
+.c-app-wrap {
+    display: grid;
+    grid-template-columns:
+            [row-start
+            left-start] minmax(0, 1fr) [left-end
+            wrap-start] minmax(0, rem($wrap-width)) [wrap-end
+            right-start] minmax(0, 1fr) [right-end
+        row-end];
+    grid-gap: $app-column-gap;
+
+    @if $wrap-splits != 'none' or $wrap-splits != 0 {
+        @each $mq in $wrap-mqs {
+            @each $spit-no in $wrap-splits {
+                @if $mq != 'orig' {
+                    @include screen-size($mq) {
+                        &.\+split-#{$spit-no}\@#{$mq} {
+                            grid-template-columns:
+                                    [row-start
+                            left-start] minmax(0, 1fr) [left-end
+                            wrap-start] repeat($spit-no, minmax(0, calc(#{rem($wrap-width)} / #{$spit-no}))) [wrap-end
+                            right-start] minmax(0, 1fr) [right-end
+                        row-end];
+                        }
+                    }
+                } @else {
+                    &.\+split-#{$spit-no} {
+                        grid-template-columns:
+                                [row-start
+                        left-start] minmax(0, 1fr) [left-end
+                        wrap-start] repeat($spit-no, minmax(0, calc(#{rem($wrap-width)} / #{$spit-no}))) [wrap-end
+                        right-start] minmax(0, 1fr) [right-end
+                    row-end];
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.c-app-wrap > *,
+.c-app-wrap__inner {
+    grid-column: wrap-start / wrap-end;
+}

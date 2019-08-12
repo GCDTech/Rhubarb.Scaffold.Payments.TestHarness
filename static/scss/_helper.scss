@@ -1,0 +1,32 @@
+// Hints
+@mixin hint-error-styles() {
+    cursor: help;
+    outline:1px solid red;
+}
+
+@if ($global-hints == true) {
+
+    /**
+    * List items outside of lists
+    */
+    :not(ol):not(ul) {
+        > li {
+            @include hint-error-styles();
+            --error: "List items need to live inside of lists";
+        }
+    }
+    /**
+    *   Layout items must be nested directly within an `o-layout` parent
+    */
+    :not(.o-layout) > .o-layout__item {
+        @include hint-error-styles();
+        --error: "This needs to live inside of an `o-layout` parent";
+    }
+    /**
+    *   Modifier class names must have their block class names
+    */
+    :not([class*="--"]) [class] {
+        @include hint-error-styles();
+        --error: "This modifier must have it's block classname";
+    }
+}

@@ -25,7 +25,7 @@ class OffSessionView extends View
     protected function printViewContent()
     {
         ?>
-        <h2>Merchant initiated Off Session Against Saved Card</h2>
+        <h1 class="u-delta">Merchant initiated Off Session Against Saved Card</h1>
         <p>This page simulates when a merchant tries to confirm a payment against a stored payment
             method that will require SCA authentication.</p>
 
@@ -33,7 +33,7 @@ class OffSessionView extends View
         a payment will be revealed.</p>
 
         <p>Test Cards:</p>
-        <ul>
+        <ul class="u-list-bullets">
             <li>4000002500003155 This card will let you capture authentication and should allow raising payments without
             authentication</li>
             <li>4000002760003184 This card will let you capture authentication but subsequent processing will still

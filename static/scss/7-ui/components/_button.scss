@@ -1,0 +1,115 @@
+/*------------------------------------------*\
+
+    _button.scss
+
+    Global buttons.
+
+
+    @namespace  .c-
+    @parent     .c-button
+    @variations .c-button--primary
+                .c-button--secondary
+                .c-button--ghost
+                .c-button--text
+                .c-button--small
+                .c-button--large
+                .c-button--long
+    @states     .has-dropdown
+                .is-processing
+
+\*------------------------------------------*/
+
+.c-button {
+    @include button;
+    text-align:center;
+
+    &.\+dropdown {
+        &:after {
+			font-family: font-family(icon);
+			content: "\f0d7";
+			margin-left:$margin/4;
+        }
+    }
+
+    &.\+processing {
+        &:before {
+            content: '';
+            display: inline-block;
+            vertical-align: middle;
+            line-height: $touch-target/1.75;
+            margin-right: $margin;
+            @include loader( $touch-target/1.75, white, .1rem );
+        }
+    }
+
+    &.\+primary {
+        @include button-color($button-color-primary);
+    }
+
+    &.\+secondary {
+        @include button-color($button-color-secondary);
+    }
+
+
+
+    &.\+pos {
+        @include button-color(color(success));
+    }
+
+    &.\+neg {
+        @include button-color(color(error));
+    }
+
+
+
+    &.\+ghost {
+        @include button-hollow(color(secondary));
+    }
+
+
+
+    &.\+text{
+        @include button-color(transparent);
+        @include button-text-color(color(text), darken(color(text), 10%));
+        box-shadow: none;
+    }
+
+
+
+    &.\+small {
+        @include padding(n $base-space/2);
+        font-size: font-size(milli);
+        line-height: $touch-target/1.5;
+        min-height: $touch-target/1.5;
+    }
+
+    &.\+large {
+        @include padding(n $base-space*2);
+        font-size: font-size(beta);
+        line-height: $large-button-height;
+        min-height: $large-button-height;
+    }
+
+    &.\+disabled {
+        cursor: not-allowed;
+        opacity: $fade;
+        pointer-events: none;
+    }
+
+    &.\+long{
+        display: block;
+        text-align: center;
+    }
+
+    &.\+tab {
+        opacity:0.4;
+
+        &.is-active {
+            opacity:1;
+        }
+    }
+}
+
+.c-button-group{
+    display:block;
+}

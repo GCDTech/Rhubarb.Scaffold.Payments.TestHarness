@@ -1,0 +1,21 @@
+/*scss/utilities/_zindex.scss*/
+
+.u-z-base {
+    z-index: zindex(base);
+}
+
+.u-z-alert {
+    z-index: zindex(alert);
+}
+
+.u-z-dropdown {
+    z-index: zindex(dropdown);
+}
+
+.u-z-overlay {
+    z-index: zindex(overlay);
+}
+
+.u-z-modal {
+    z-index: zindex(modal);
+}

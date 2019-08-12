@@ -1,0 +1,59 @@
+@mixin field-blank (
+$width: auto
+) {
+	border:	0;
+	border-radius: 0;
+	display: inline-block;
+	line-height: $input-height;
+	max-width:100%;
+	min-height: $input-height;
+	width:$width;
+	@if $field-font-family {
+		font-family: $field-font-family;
+	}
+}
+
+@mixin field-base (
+$width: auto
+) {
+	@include field-blank($width);
+	-webkit-appearance: none;
+	color:inherit;
+	background:$field-bg;
+
+
+	// Border Settings
+	@if $field-border-width != 0 {
+		@if length($field-border-width) > 1 {
+			border: solid $field-border-color;
+			border-width: $field-border-width;
+		} @else {
+			border: $field-border-width solid $field-border-color;
+		}
+	} @else {
+		border: 0;
+	}
+	@if $field-radius > 0 {
+		border-radius: $field-radius;
+	}
+}
+
+@mixin field (
+$width: auto
+) {
+	@include field-base($width);
+	@include padding(0 ($base-space/2));
+}
+
+@mixin field-reset {
+	-webkit-appearance: none;
+	background: transparent;
+	border:	0;
+	line-height: inherit;
+	min-height: inherit;
+	padding: 0;
+}
+
+@mixin field-padding {
+	@include padding($field-padding);
+}

@@ -1,0 +1,39 @@
+@mixin basic-styles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: color(secondary);
+    color: color(tint);
+    font-size: 48px;
+    font-weight: bold;
+}
+
+@mixin display-grid {
+    display: -ms-grid;
+    display: grid;
+}
+
+@mixin grid-child ($col-start, $col-end, $row-start, $row-end) {
+    -ms-grid-column: $col-start;
+    -ms-grid-column-span: $col-end - $col-start;
+    -ms-grid-row: $row-start;
+    -ms-grid-row-span: $row-end - $row-start;
+    grid-column: #{$col-start}/#{$col-end};
+    grid-row: #{$row-start}/#{$row-end};
+}
+
+@mixin grid-fr(
+    $cols: $grid-columns,
+    $element: 'fr'
+) {
+    @for $d from 1 through $cols {
+        @for $n from 1 to $d {
+            $span : ($cols / $d)*$n;
+            @if round($span) == $span {
+                .\+#{$element}-#{$n}\/#{$d} {
+                    grid-column: auto / span ($cols / $d)*$n;
+                }
+            }
+        }
+    }
+}
