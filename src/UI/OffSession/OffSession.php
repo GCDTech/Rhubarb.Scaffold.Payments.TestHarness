@@ -40,8 +40,11 @@ class OffSession extends Leaf
             $paymentEntity->emailAddress = $this->model->Email;
 
             TakePaymentUseCase::create(new StripePaymentService())->execute($paymentEntity);
-            SendPaymentAuthorisationRequestEmailUseCase::create(new TestHarnessPaymentAuthenticationEmail($paymentEntity))
-                ->execute($paymentEntity->emailAddress);
+
+            if (!empty($paymentEntity->emailAddress) && $paymentEntity->status == PaymentEntity::STATUS_AWAITING_AUTHENTICATION) {
+                SendPaymentAuthorisationRequestEmailUseCase::create(new TestHarnessPaymentAuthenticationEmail($paymentEntity))
+                    ->execute($paymentEntity->emailAddress);
+            }
 
             return $paymentEntity->status;
         });
