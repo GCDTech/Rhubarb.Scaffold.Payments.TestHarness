@@ -5,6 +5,7 @@ namespace Gcd\Payments\TestHarness\UI\OffSession;
 use Gcd\Payments\TestHarness\UI\MOTO\MOTO;
 use Gcd\Scaffold\Payments\Stripe\UI\StripePaymentCaptureControl\StripePaymentCaptureControl;
 use Rhubarb\Leaf\Controls\Common\Text\NumericTextBox;
+use Rhubarb\Leaf\Controls\Common\Text\TextBox;
 use Rhubarb\Leaf\Views\View;
 use Rhubarb\Leaf\Leaves\LeafDeploymentPackage;
 
@@ -16,7 +17,8 @@ class OffSessionView extends View
     protected function createSubLeaves()
     {
         $this->registerSubLeaf(
-            new StripePaymentCaptureControl("Payment")
+            new StripePaymentCaptureControl("Payment"),
+            new TextBox('Email')
         );
 
         parent::createSubLeaves();
@@ -44,8 +46,12 @@ class OffSessionView extends View
 
         <div id="capture">
             <h2>Capture card details</h2>
-            <?php
+            <p>
+                <label class="c-label">Email Address:</label>
+                <?= $this->leaves['Email'];?>
+            </p>
 
+            <?php
             print $this->leaves["Payment"];
 
             ?><button class="js-paynow">Capture Details</button>

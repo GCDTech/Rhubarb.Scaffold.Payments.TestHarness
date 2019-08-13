@@ -14,12 +14,17 @@ use Gcd\Scaffold\Payments\Stripe\StripePaymentsModule;
 use Rhubarb\Crown\Application;
 use Rhubarb\Crown\Exceptions\Handlers\ExceptionHandler;
 use Rhubarb\Crown\Layout\LayoutModule;
+use Rhubarb\Crown\Sendables\Email\EmailProvider;
+use Rhubarb\Crown\Sendables\Email\EmailRecipient;
+use Rhubarb\Crown\Sendables\Email\EmailSettings;
 use Rhubarb\Crown\UrlHandlers\ClassMappedUrlHandler;
 use Rhubarb\Stem\Repositories\MySql\MySql;
 use Rhubarb\Stem\Repositories\Repository;
 use Rhubarb\Stem\Schema\SolutionSchema;
 use Rhubarb\Stem\StemModule;
 use Rhubarb\Stem\StemSettings;
+use Rhubarb\PostmarkEmail\EmailProviders\PostmarkEmailProvider;
+use Rhubarb\PostmarkEmail\Settings\PostmarkSettings;
 
 class TestHarnessApplication extends Application
 {
@@ -44,6 +49,11 @@ class TestHarnessApplication extends Application
         StripeSettings::singleton()->secretKey = 'sk_test_BaJmnLU75P9DhiAQIdW6YxvY';
 
         PaymentService::registerPaymentService(StripePaymentService::class);
+
+        EmailProvider::setProviderClassName(PostmarkEmailProvider::class);
+        PostmarkSettings::singleton()->serverToken = $this->getPostmarkServerToken();
+        EmailSettings::singleton()->defaultSender = 'rellis@gcdtech.com';
+        EmailSettings::singleton()->OnlyRecipient = new EmailRecipient("jmcelreavey@gcdtech.com");
     }
 
     protected function getModules()
@@ -67,6 +77,10 @@ class TestHarnessApplication extends Application
               ])
           ]
         );
+    }
+
+    protected function getPostmarkServerToken() : string {
+        return '35746c5e-248c-4c34-b7d3-9c5780b0b81a';
     }
 
 
